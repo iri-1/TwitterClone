@@ -50,3 +50,52 @@ function convertToDayTimeAgo(string $datetime)
  
     return (int)$time . $unit;
 }
+
+/**ユーザー情報をセッションに保存する関数
+ * @param array $user
+ * @return void
+ */
+function saveUserSession(array $user){
+// セッションを開始していない場合
+if (session_status() === PHP_SESSION_NONE){
+    // セッション開始
+    session_start();
+}
+$_SESSION['USER'] = $user;
+}
+
+/**ユーザー情報をセッションから削除する関数
+ * @return void
+ */
+function deleteUserSession(){
+// セッションを開始してない場合
+if (session_status() === PHP_SESSION_NONE){
+    session_start();
+}
+// セッションのユーザー情報を削除
+unset($_SESSION['USER']);
+}
+
+/**セッションのユーザー情報を収得
+ *
+ * @return array|false
+ */
+function getUserSession()
+{
+// セッションを開始していない場合
+if(session_status() === PHP_SESSION_NONE){
+    // セッション開始
+    session_start();
+}
+if(!isset($_SESSION['USER']))
+{
+    // セッションにユーザー情報がない
+    return false;
+}
+$user = $_SESSION['USER'];
+
+// 画像のファイル名からファイルのURLを取得
+$user['image_path'] = buildImagePath($user['image_name'], 'user');
+
+return $user;
+}
