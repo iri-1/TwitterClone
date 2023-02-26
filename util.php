@@ -95,7 +95,44 @@ if(!isset($_SESSION['USER']))
 $user = $_SESSION['USER'];
 
 // 画像のファイル名からファイルのURLを取得
+// 画像のファイル名からファイルのURLを取得
+if (!isset($user['image_name'])) {
+    $user['image_name'] = null;
+}
 $user['image_path'] = buildImagePath($user['image_name'], 'user');
 
 return $user;
+}
+/**
+ * 画像をアップする関数
+ * @param array $user
+ * @param array $file
+ * @param string $type
+ * @return string 画像のファイル名
+ */
+function uploadImage(array $user, array $file, string $type){
+
+    // 画像のファイル名から拡張子を取得（例：.png）
+    $image_extension = strrchr($file['name'],'.');
+
+    // 画像のファイル名を作成(YmdHis:2021-10-01 000:00:00 なら20210101000000)
+    $image_name = $user['id'] . '_' .date('YmdHis') . $image_extension;
+    
+    // 保存先ディレクトリ
+    $directory = '../Views/img_uploaded/' . $type . '/';
+
+    // 画像のパス
+    $image_path = $directory . $image_name;
+
+    // 画像の設置
+    move_uploaded_file($file['tmp_name'], $image_path);
+
+    // 画像ファイルの場合->ファイル名をreturn
+    if(exif_imagetype($image_path)){
+        return $image_name;
+    }
+
+    // 画像ファイル以外の場合
+    echo '選択されたファイルが画像でないため処理を停止しました。';
+    exit;
 }
