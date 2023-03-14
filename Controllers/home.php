@@ -12,7 +12,7 @@ include_once '../Models/tweets.php';
 $user = getUserSession();
 if(!$user){
   // ログインしてない場合
-  header('Location: ' . HOME_URL . 'Controllers/sin-in.php');
+  header('Location: ' . HOME_URL . 'Controllers/sign-in.php');
   exit;
 }
 // 表示用変数
