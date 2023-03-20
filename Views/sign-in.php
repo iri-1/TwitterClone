@@ -20,7 +20,7 @@
             <input type="password" class="form-control" name="password" placeholder="パスワード" required>
             <button class="w-100 btn btn-lg" type="submit">ログインする</button>
             <p class="mt-3 mb-2"><a href="sign-up.php">会員登録する</a></p>
-            <p class="mt-2 mt-3 text-muted">&copy; 2023</p>
+            <p class="mt-2 mt-3 text-muted">&copy; 2024</p>
         </form>
         </main>
         <?php include_once('../Views/common/foot.php') ?>
