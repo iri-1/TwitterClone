@@ -3,7 +3,7 @@
 <head>
     <?php include_once('../Views/common/head.php'); ?>
     <title>ホーム画面 / Twitterクローン</title>
-    <meta name="description" content="ホーム画面です">
+    <meta name="description" content="1ホーム画面です">
 </head>
  
 <body class="home">
