@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
     <?php include_once('../Views/common/head.php'); ?>
-    <title>4-15ホーム画面 / Twitterクローン</title>
+    <title>4-22ホーム画面 / Twitterクローン</title>
     <meta name="description" content="ホーム画面です">
 </head>
  
