@@ -10,6 +10,7 @@ define('DB_HOST','localhost');
 define('DB_USER','dbuser');
 define('DB_PASSWORD','Sada2211!');
 define('DB_NAME','twitter_clone');
+// 　★ローカル環境で動かすためには以下部分をコメントアウトしてください
 // define('DB_HOST','localhost');
 // define('DB_USER','root');
 // define('DB_PASSWORD','root');
