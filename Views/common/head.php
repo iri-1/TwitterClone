@@ -14,3 +14,6 @@
     <script src="<?php echo HOME_URL; ?>Views/js/likes.js" defer></script>
 
     <link href="<?php echo HOME_URL; ?>Views/css/style.css" rel="stylesheet">
+
+    <!-- フォローJS -->
+<script src="<?php echo HOME_URL; ?>Views/js/follows.js" defer></script>
